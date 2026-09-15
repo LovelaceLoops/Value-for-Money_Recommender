@@ -6,4 +6,3 @@ import seaborn as sns
 data = pd.read_csv("CAR_DATASET.csv")
 
 print(data.head())
-print(data.columns)
