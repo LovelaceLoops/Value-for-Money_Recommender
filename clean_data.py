@@ -110,3 +110,23 @@ print("MAE = ",metrics.mean_absolute_error(y_test,predictions))
 print("MSE = ",metrics.mean_squared_error(y_test,predictions))
 print("RMSE = ",np.sqrt(metrics.mean_squared_error(y_test,predictions)))
 print("VAR = ",metrics.explained_variance_score(y_test,predictions))
+
+#Value-for-Money ranking
+predicted_prices = lm.predict(X)
+
+sns.displot(y - predicted_prices)
+plt.title("Residual Distribution (Full Dataset)")
+plt.xlabel("Actual - Predicted")
+plt.show()
+
+results = data.copy()
+results['Predicted Price'] = predicted_prices
+results['Value Score'] = results['Predicted Price'] - results['Y house price of unit area']
+results = results.sort_values(by='Value Score', ascending=False)
+
+print("\n" + "========== TOP 10 BEST VALUE FOR MONEY PROPERTIES ==========")
+display_cols = ['X2 house age', 'X3 distance to the nearest MRT station',
+                 'X4 number of convenience stores', 'Y house price of unit area',
+                 'Predicted Price', 'Value Score']
+print(results[display_cols].head(10).to_string())
+
