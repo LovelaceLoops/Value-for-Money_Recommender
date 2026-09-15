@@ -67,8 +67,6 @@ sns.heatmap(
 plt.title("Missing Value Check", fontsize=13, fontweight='bold', pad=12)
 plt.xlabel("Columns", fontsize=10)
 plt.xticks(rotation=45, ha='right', fontsize=9)
-plt.tight_layout()
-plt.show()
 plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
