@@ -72,3 +72,7 @@ plt.show()
 plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
+
+#Drop useless columns
+print("\n" + "========== DROP 'No' COLUMN ==========")
+data = data.drop('No',axis=1)
