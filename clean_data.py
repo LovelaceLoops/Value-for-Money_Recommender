@@ -43,9 +43,6 @@ sns.heatmap(
 )
 plt.title("Correlation with Price", fontsize=14, fontweight='bold', pad=15)
 plt.xticks(rotation=45, ha='right', fontsize=9)
-plt.yticks(rotation=0, fontsize=9)
-plt.tight_layout()
-plt.show()
 
 #Data Visualization
 print("\n" + "========== HOUSE PRICES PER UNIT AREA ==========")
@@ -70,12 +67,9 @@ sns.heatmap(
 plt.title("Missing Value Check", fontsize=13, fontweight='bold', pad=12)
 plt.xlabel("Columns", fontsize=10)
 plt.xticks(rotation=45, ha='right', fontsize=9)
+plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
-
-#Drop useless columns
-print("\n" + "========== DROP 'No' COLUMN ==========")
-data = data.drop('No',axis=1)
 
 #Prepare data
 X = data[['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station',
@@ -84,6 +78,11 @@ y = data['Y house price of unit area']
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
+
+
+#Drop useless columns
+print("\n" + "========== DROP 'No' COLUMN ==========")
+data = data.drop('No',axis=1)
 
 #Train model
 from sklearn.linear_model import LinearRegression
