@@ -43,6 +43,17 @@ sns.heatmap(
 )
 plt.title("Correlation with Price", fontsize=14, fontweight='bold', pad=15)
 plt.xticks(rotation=45, ha='right', fontsize=9)
+
+#Data Visualization
+print("\n" + "========== HOUSE PRICES PER UNIT AREA ==========")
+sns.set_style("whitegrid")  
+plt.figure(figsize=(8, 5))
+plt.hist(data["Y house price of unit area"], bins=30, color="#4C72B0", edgecolor='white', alpha=0.85)
+plt.title("Distribution of House Prices (per Unit Area)", fontsize=13, fontweight='bold')
+plt.xlabel("Price per Unit Area", fontsize=11)
+plt.ylabel("Frequency", fontsize=11)
+plt.tight_layout()
+plt.show()
 plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
