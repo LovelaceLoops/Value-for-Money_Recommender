@@ -16,3 +16,33 @@ sns.boxplot(y=data['Y house price of unit area'], color='#4C72B0')
 plt.title("Price Distribution — Outlier Check")
 plt.tight_layout()
 plt.show()
+
+#Heatmap to verify correlation of price data and other components
+print("\n" + "========== CORRELATION MATRIX ==========")
+print(data[['X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+       'Y house price of unit area']].corr())
+
+sns.set_style("white")
+
+plt.figure(figsize=(9, 7), dpi=100)
+sns.heatmap(
+    data[['X1 transaction date', 'X2 house age',
+          'X3 distance to the nearest MRT station',
+          'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+          'Y house price of unit area']].corr(),
+    annot=True,
+    fmt=".2f",
+    cmap='vlag',
+    center=0,
+    linewidths=0.5,
+    linecolor='white',
+    cbar_kws={'label': 'Correlation'},
+    annot_kws={"size": 9}
+)
+plt.title("Correlation with Price", fontsize=14, fontweight='bold', pad=15)
+plt.xticks(rotation=45, ha='right', fontsize=9)
+plt.yticks(rotation=0, fontsize=9)
+plt.tight_layout()
+plt.show()
