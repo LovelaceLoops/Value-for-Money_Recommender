@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data = pd.read_csv("CAR_DATASET.csv")
-
+#Load Dataset
+print("\n" + "========== LOAD REAL ESTATE DATASET ==========")
+data = pd.read_csv("Real estate.csv")
 print(data.head())
 print(data.columns)
