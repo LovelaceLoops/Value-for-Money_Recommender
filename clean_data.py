@@ -96,4 +96,17 @@ print("Intecept = " ,lm.intercept_)
 coeff_df = pd.DataFrame(lm.coef_, X_test.columns, columns=["Coefficient"])
 print(coeff_df.sort_values(by="Coefficient", ascending=False))
 
+#Evaluate Model
+predictions = lm.predict(X_test)
 
+sns.displot(y_test - predictions)
+plt.title("Residual Distribution (Test Set)")
+plt.xlabel("Actual − Predicted")
+plt.show()
+
+from sklearn import metrics
+print("\n" + "========== MODEL PERFORMANCE (TEST SET) ==========")
+print("MAE = ",metrics.mean_absolute_error(y_test,predictions))
+print("MSE = ",metrics.mean_squared_error(y_test,predictions))
+print("RMSE = ",np.sqrt(metrics.mean_squared_error(y_test,predictions)))
+print("VAR = ",metrics.explained_variance_score(y_test,predictions))
