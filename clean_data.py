@@ -73,6 +73,15 @@ plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
 
+#Prepare data
+X = data[['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station',
+           'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']]
+y = data['Y house price of unit area']
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
+
+
 #Drop useless columns
 print("\n" + "========== DROP 'No' COLUMN ==========")
 data = data.drop('No',axis=1)
