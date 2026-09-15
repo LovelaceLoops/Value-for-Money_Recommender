@@ -84,6 +84,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 print("\n" + "========== DROP 'No' COLUMN ==========")
 data = data.drop('No',axis=1)
 
+#Clean data
+data.to_csv("cleaned_real_estate.csv", index=False)
+
 #Train model
 from sklearn.linear_model import LinearRegression
 lm = LinearRegression()
