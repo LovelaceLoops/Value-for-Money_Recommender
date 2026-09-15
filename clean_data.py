@@ -85,3 +85,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 #Drop useless columns
 print("\n" + "========== DROP 'No' COLUMN ==========")
 data = data.drop('No',axis=1)
+
+#Train model
+from sklearn.linear_model import LinearRegression
+lm = LinearRegression()
+lm.fit(X_train, y_train)
+
+print("\n" + "========== MODEL COEFFICIENTS ==========")
+print("Intecept = " ,lm.intercept_)
+coeff_df = pd.DataFrame(lm.coef_, X_test.columns, columns=["Coefficient"])
+print(coeff_df.sort_values(by="Coefficient", ascending=False))
+
+
