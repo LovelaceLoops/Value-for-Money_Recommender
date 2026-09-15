@@ -54,6 +54,21 @@ plt.xlabel("Price per Unit Area", fontsize=11)
 plt.ylabel("Frequency", fontsize=11)
 plt.tight_layout()
 plt.show()
+
+#Check for null values
+print("\n" + "========== NULL VALUES DETECTION ==========")
+plt.figure(figsize=(8, 5), dpi=100)
+sns.heatmap(
+    data.isnull(),
+    yticklabels=False,
+    cbar=False,
+    cmap="viridis"
+)
+plt.title("Missing Value Check", fontsize=13, fontweight='bold', pad=12)
+plt.xlabel("Columns", fontsize=10)
+plt.xticks(rotation=45, ha='right', fontsize=9)
+plt.tight_layout()
+plt.show()
 plt.yticks(rotation=0, fontsize=9)
 plt.tight_layout()
 plt.show()
