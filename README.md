@@ -1,5 +1,9 @@
 # Value-for-Money_Recommender
 
+## Author
+
+Created by **Mrunal Patil** and **Kartik Patil** as part of an engineering coursework project.
+
 A content-based recommender that predicts a property's expected price using Linear Regression, then flags properties priced **below** their predicted value as good deals. Properties are ranked by a **Value Score** — the gap between what the model expects a property to cost and what it's actually listed at.
 
 ## Dataset
