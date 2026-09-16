@@ -1,5 +1,15 @@
+import numpy as np
 import pandas as pd
-data = pd.read_csv("cleaned_real_estate.csv")
+import matplotlib.pyplot as plt
+import seaborn as sns
+import clean_data as data
+
+X_train = data.X_train
+X_test = data.X_test
+y_train = data.y_train
+y_test = data.y_test
+X = data.X
+y = data.y
 
 #Train model
 from sklearn.linear_model import LinearRegression
@@ -34,7 +44,7 @@ plt.title("Residual Distribution (Full Dataset)")
 plt.xlabel("Actual - Predicted")
 plt.show()
 
-results = data.copy()
+results = pd.read_csv("cleaned_real_estate.csv")
 results['Predicted Price'] = predicted_prices
 results['Value Score'] = results['Predicted Price'] - results['Y house price of unit area']
 results = results.sort_values(by='Value Score', ascending=False)

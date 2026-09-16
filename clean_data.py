@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+global X_train
+global y_train
 
 #Load Dataset
 print("\n" + "========== LOAD REAL ESTATE DATASET ==========")
